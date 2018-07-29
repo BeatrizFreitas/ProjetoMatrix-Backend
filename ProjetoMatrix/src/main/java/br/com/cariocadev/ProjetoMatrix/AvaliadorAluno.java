@@ -16,6 +16,15 @@ public class AvaliadorAluno {
 		return maior;
 	}
 	
+	/*
+	 * 1- Não há necessidade de criação de váriaveis para usar apenas em
+	 * validações ou armazenamento do valor de retorno. Isso apenas aumenta a quantidede de linhas de código
+	 * 
+	 * 2- Suprimir as variáveis soma e média
+	 * 
+	 * 3- Suprimir as variaveis de teste. 
+	 * Indico criar um novo método que encapsule a chamada dos três métodos de teste (isNull, isMenorQueZero, isMaiorQueDez).
+	 */
 	public BigDecimal getMedia(BigDecimal nota1, BigDecimal nota2, BigDecimal nota3) {	
 		BigDecimal soma = new BigDecimal(0);
 		BigDecimal qtd = new BigDecimal(3);
@@ -28,10 +37,15 @@ public class AvaliadorAluno {
 		if (verificaNumero1 == false || verificaNumero2 == false || verificaNumero3 == false) {
 			throw new IllegalArgumentException();
 		} 
+		
+		// O return esta pouco legivel. Ao suprimir o uso das variáveis ele ficará mais fácil de entender
 		soma = nota1.add(nota2.add(nota3));
 		return media = soma.divide(qtd,BigDecimal.ROUND_HALF_UP);
 	}
 
+	/*
+	 * O código esta correto. Entretando o ultimo else pode ser suprimido
+	 */
 	public String getStatus(BigDecimal nota1, BigDecimal nota2, BigDecimal nota3) {
 		BigDecimal media = new BigDecimal(0);
 		String result = null;
